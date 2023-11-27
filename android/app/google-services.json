@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91060717873",
+    "project_id": "clone-10ccc",
+    "storage_bucket": "clone-10ccc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91060717873:android:8a5ec18dcbab8cdcd20810",
+        "android_client_info": {
+          "package_name": "johnsy.app.amazon_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5_0s4fZkXZv5NikaK1SGXhfVtoVlbf1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
