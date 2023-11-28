@@ -1,4 +1,6 @@
 import 'package:amazon_clone/Layouts/Screens/Account_screen.dart';
+import 'package:amazon_clone/Layouts/Screens/Cart_screen.dart';
+import 'package:amazon_clone/Layouts/Simple_product_Widget.dart';
 import 'package:amazon_clone/Layouts/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -38,9 +40,7 @@ const List<String> categoriesList = [
 const List<Widget> screens = [
   HomeScreen(),
   AccountScreen(),
-  Center(
-    child: Text("Cart Screen"),
-  ),
+  CartScreen(),
   Center(
     child: Text("More Screen"),
   ),
@@ -83,3 +83,18 @@ const List<String> adItemNames = [
 //Dont even attemp to scroll to the end of this manually lmao
 const String amazonLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
+
+List<Widget> testChildren = [
+            SimpleProductWidget(
+                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+            SimpleProductWidget(
+                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+            SimpleProductWidget(
+                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+           SimpleProductWidget(
+                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+          SimpleProductWidget(
+                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
+           SimpleProductWidget(
+                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+  ];
