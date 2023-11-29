@@ -1,4 +1,6 @@
 import 'package:amazon_clone/Utils/data.dart';
+import 'package:amazon_clone/Widgets/custom_simple_rounded_button.dart';
+import 'package:amazon_clone/Widgets/custom_square_button.dart';
 import 'package:amazon_clone/Widgets/product_information_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,7 @@ class CartItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
      Size screenSize = MediaQuery.of(context).size;
     return Container(
+      padding: const EdgeInsets.all(25),
       height: screenSize.height/2,
       width: screenSize.width,
       decoration:const BoxDecoration(
@@ -29,8 +32,10 @@ class CartItemWidget extends StatelessWidget {
                 width: screenSize.width/3,
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: Image.network(
-                    "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+                  child: Center(
+                    child: Image.network(
+                      "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
+                  ),
                     ),
               ),
               ProductInformationWidget(
@@ -41,13 +46,34 @@ class CartItemWidget extends StatelessWidget {
             ),
           flex: 5,
           ),
-          Expanded(child: Container(
-            color: Colors.blue,
+          Expanded(
+            child: Row(
+              children: [
+              CustomSquareutton(child: Icon(Icons.remove),
+               onPressed: (){},
+                color: Colors.grey[500]!,
+                 dimension: 50),
+                 CustomSquareutton(child: Text("0", style: TextStyle(
+                  color: activeCyanColor,
+                 ),
+                 ),
+               onPressed: (){},
+                color: Colors.grey[200]!,
+                 dimension: 50),
+                 CustomSquareutton(child: Icon(Icons.add),
+               onPressed: (){},
+                color: Colors.grey[500]!,
+                 dimension: 50),
+              ],
+            ),
+          flex: 3,
           ),
-          flex: 1,
-          ),
-          Expanded(child: Container(
-            color: Colors.green,
+          Expanded(child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomSimpleRoundedButton(onPressed: (){}, text: "Delete"),
+              CustomSimpleRoundedButton(onPressed: (){}, text: "Save for later"),
+            ],
           ),
           flex: 1,
           ),

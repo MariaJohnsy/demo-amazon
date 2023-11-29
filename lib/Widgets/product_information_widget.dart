@@ -1,3 +1,4 @@
+import 'package:amazon_clone/Utils/data.dart';
 import 'package:amazon_clone/Widgets/cost_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +27,8 @@ class ProductInformationWidget extends StatelessWidget {
             maxLines: 2,
            style:const TextStyle(
             fontWeight: FontWeight.w500,
-             fontSize: 16, 
-             letterSpacing: 0.7,
+             fontSize: 15, 
+             letterSpacing: 0.9,
              overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -36,7 +37,29 @@ class ProductInformationWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 7),
             child: CostWidget(color: Colors.black, cost: cost),
-          )
+          ),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: RichText(
+              text: TextSpan(
+              children: [
+              TextSpan
+              ( text: "Sold by",style: TextStyle(
+                color: Colors.grey[700],
+                fontSize: 14,
+              ),
+                ),
+                TextSpan(
+                  text: sellerName,
+                  style:  const TextStyle(
+                color: activeCyanColor,
+                fontSize: 14,
+              ),
+                ),
+                   ],
+             ),
+              ),
           ),
         ],
       ),
