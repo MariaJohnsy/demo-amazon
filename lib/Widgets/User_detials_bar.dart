@@ -1,5 +1,5 @@
 import 'package:amazon_clone/Utils/data.dart';
-import 'package:amazon_clone/Widgets/Model/UserDetialModel.dart';
+import 'package:amazon_clone/Model/UserDetialModel.dart';
 import 'package:flutter/material.dart';
 
 class UserDetialBar extends StatelessWidget {

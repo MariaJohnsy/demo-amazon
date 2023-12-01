@@ -20,8 +20,10 @@ class CustomSquareutton extends StatelessWidget {
       child: Container(
         height: dimension,
         width: dimension,
-        decoration: ShapeDecoration(shape:RoundedRectangleBorder(
-          side: BorderSide(
+        decoration: ShapeDecoration(
+          color: color,
+          shape:RoundedRectangleBorder(
+          side: const BorderSide(
             color: Colors.grey,width: 1,
           ),
          borderRadius: BorderRadius.circular(2),

@@ -1,7 +1,8 @@
+import 'package:amazon_clone/Firebase_Options.dart';
+import 'package:amazon_clone/Layouts/Screens/result_screens.dart';
 import 'package:amazon_clone/Layouts/screen_layout.dart';
 import 'package:amazon_clone/Layouts/Screens/Sign_in.dart';
 import 'package:amazon_clone/Utils/data.dart';
-import 'package:amazon_clone/Firebase_Options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,8 @@ class Amazonapp extends StatelessWidget {
         ),
       );
     } else if (User.hasData){
-    return const ScreenLayout();
+   // return const ScreenLayout();
+   return ResultScreen(query: "ABCDEFGHIJ");
       } else {
     return const SignIn();
     }

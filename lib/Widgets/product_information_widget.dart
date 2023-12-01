@@ -7,7 +7,7 @@ class ProductInformationWidget extends StatelessWidget {
   final double cost;
   final String sellerName;
 
-  const ProductInformationWidget({super.key,
+  ProductInformationWidget({super.key,
   required this.productName,
   required this.cost,
   required this.sellerName,
@@ -15,6 +15,10 @@ class ProductInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     SizedBox spaceThingy = const SizedBox(
+  height: 7,
+  );
+
     Size screenSize = MediaQuery.of(context).size;
     return SizedBox(
       width: screenSize.width/2,
@@ -22,16 +26,20 @@ class ProductInformationWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            productName,
-            maxLines: 2,
-           style:const TextStyle(
-            fontWeight: FontWeight.w500,
-             fontSize: 15, 
-             letterSpacing: 0.9,
-             overflow: TextOverflow.ellipsis,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              productName,
+              maxLines: 2,
+             style:const TextStyle(
+              fontWeight: FontWeight.w500,
+               fontSize: 16, 
+               letterSpacing: 0.9,
+               overflow: TextOverflow.ellipsis,
+            ),
+                  ),
           ),
-        ),
+        spaceThingy,
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
@@ -39,6 +47,7 @@ class ProductInformationWidget extends StatelessWidget {
             child: CostWidget(color: Colors.black, cost: cost),
           ),
           ),
+          spaceThingy,
           Align(
             alignment: Alignment.centerLeft,
             child: RichText(

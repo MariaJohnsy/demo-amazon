@@ -1,5 +1,6 @@
 import 'package:amazon_clone/Layouts/Screens/Account_screen.dart';
 import 'package:amazon_clone/Layouts/Screens/Cart_screen.dart';
+import 'package:amazon_clone/Layouts/Screens/more_screen.dart';
 import 'package:amazon_clone/Layouts/Simple_product_Widget.dart';
 import 'package:amazon_clone/Layouts/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -41,9 +42,7 @@ const List<Widget> screens = [
   HomeScreen(),
   AccountScreen(),
   CartScreen(),
-  Center(
-    child: Text("More Screen"),
-  ),
+  MoreScreen(),
 ];
 
 const List<String> categoryLogos = [

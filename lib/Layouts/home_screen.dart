@@ -3,7 +3,7 @@ import 'package:amazon_clone/Layouts/Categories_horizontal_list_view_bar.dart';
 import 'package:amazon_clone/Layouts/Product_showcase_list_view.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:amazon_clone/Layouts/Simple_product_Widget.dart';
-import 'package:amazon_clone/Widgets/Model/UserDetialModel.dart';
+import 'package:amazon_clone/Model/UserDetialModel.dart';
 import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:amazon_clone/resources/search_bar_widget.dart';
 import 'package:flutter/material.dart';
