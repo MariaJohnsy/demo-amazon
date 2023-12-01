@@ -32,9 +32,8 @@ class Amazonapp extends StatelessWidget {
         ),
       );
     } else if (User.hasData){
-   // return const ScreenLayout();
-   return ResultScreen(query: "ABCDEFGHIJ");
-      } else {
+   return const ScreenLayout();
+   } else {
     return const SignIn();
     }
      }),

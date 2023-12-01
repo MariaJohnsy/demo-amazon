@@ -1,3 +1,4 @@
+import 'package:amazon_clone/Layouts/Screens/result_screens.dart';
 import 'package:amazon_clone/Layouts/Search_screen.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,11 @@ class SearchBarWidget extends StatelessWidget implements PreferredSizeWidget{ //
             ],
           ),
            child: TextField(
+               onSubmitted: (String query){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen(query: query),
+                ),
+                );
+               },
                  readOnly: isReadOnly,
                  onTap: (){
             if(isReadOnly){

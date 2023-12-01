@@ -1,4 +1,4 @@
-import 'package:amazon_clone/resources/search_bar_widget.dart';
+import 'package:amazon_clone/Widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {

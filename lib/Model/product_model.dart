@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class productModel{
+class ProductModel{
   final String url;
   final String productName;
   final double cost;
@@ -11,7 +11,7 @@ class productModel{
   final int rating;
   final int noOfRating;
 
-productModel({
+ProductModel({
 required this.url,
 required this.productName,
 required this.cost,

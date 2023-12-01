@@ -6,7 +6,7 @@ import 'package:amazon_clone/Widgets/product_information_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartItemWidget extends StatelessWidget {
-  final productModel product;
+  final ProductModel product;
   const CartItemWidget({super.key,
   required this.product,
   });

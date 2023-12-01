@@ -1,6 +1,6 @@
 import 'package:amazon_clone/Model/product_model.dart';
 import 'package:amazon_clone/Widgets/result_widgets.dart';
-import 'package:amazon_clone/resources/search_bar_widget.dart';
+import 'package:amazon_clone/Widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -13,23 +13,26 @@ class ResultScreen extends StatelessWidget {
       appBar: SearchBarWidget(isReadOnly:false, hasBackButton:true),
       body: Column(
        children: [
-        Padding(
-          padding: const EdgeInsets.all(15),
-          child: RichText(text: TextSpan(
-            children: [
-              const TextSpan(
-                text: "Showing result for", style: TextStyle(
-                  fontSize: 17,
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: RichText(text: TextSpan(
+              children: [
+                const TextSpan(
+                  text: "Showing result for", style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
-              ),
-               TextSpan(
-                text: query, style: const TextStyle(
-                  fontSize: 17,
-                  fontStyle: FontStyle.italic,
+                 TextSpan(
+                  text: query, style: const TextStyle(
+                    fontSize: 17,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+            ),
           ),
         ),
         Expanded(
@@ -40,15 +43,15 @@ class ResultScreen extends StatelessWidget {
             ),
            itemBuilder: (context,index){
             return ResultWidget(
-              product: productModel(
+              product: ProductModel(
                     url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
-                   productName: "Thalappathy Vijay",
+                   productName: "Snowyaa aaa aaaa aaaaa aaaaaaaaaa aaaa",
                    cost: 100,
                    discount: 0,
                     uid: "ABCDEFGHIJ",
-                     sellerName: "Fan seller", 
+                     sellerName: "Fan gurl", 
                      sellerUid: "abcdefghij",
-                      rating: 4, 
+                      rating: 3, 
                       noOfRating: 1),
                );
            }),
