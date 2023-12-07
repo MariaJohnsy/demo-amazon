@@ -1,5 +1,9 @@
+import 'package:amazon_clone/Providers/user_detials_provider.dart';
+import 'package:amazon_clone/Resources/cloudfirestore_methods.dart';
 import 'package:amazon_clone/Utils/data.dart';
+import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 class ScreenLayout extends StatefulWidget {
   const ScreenLayout({super.key});
 
@@ -23,12 +27,20 @@ class _ScreenLayoutState extends State<ScreenLayout> {
    }
 
   @override
+  void initState(){
+    super.initState();
+    CloudFirestoreClass().getNameAndAddress();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Provider.of<userDetiallsProvider>(context).getData();
     return DefaultTabController(
       length: 4,
       child: SafeArea(
         child: Scaffold(
           body: PageView(
+            physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             children: screens,
           ),

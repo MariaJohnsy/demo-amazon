@@ -7,6 +7,11 @@ class UserDetialsModel{
   "name"    : name,
   "address" : address,
   };
-
   
+  factory UserDetialsModel.getModelFromJson(
+    Map<String,dynamic>json){
+    return UserDetialsModel(
+      name: json["name"], 
+      address: json["address"]);
+  }
 }

@@ -12,53 +12,59 @@ class ResultWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: (){},
+      onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 1),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: screenSize.width / 3,
-            child: Image.network(product.url,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 5),
-            child: Text(product.productName, 
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 5),
-            child: Row(
-            children: [
-                SizedBox(
-                  width: screenSize.width/5,
-                  child: FittedBox(child: RatingStar(
-                    rating: product.rating),
-                  ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(product.noOfRating.toString(),
-                  style: const TextStyle(
-                    color: activeCyanColor,
-                  ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FittedBox(child: SizedBox(
-            height: 20,
-            child: CostWidget(
-              color: const Color.fromRGBO(235, 92, 9, 3), 
-              cost: product.cost),
+          children: [
+            SizedBox(
+              width: screenSize.width / 2,
+              height: 100,
+              child: Image.network(
+                product.url,
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Text(
+                product.productName,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 10),
               ),
-        ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: screenSize.width / 5,
+                    child: FittedBox(
+                      child: RatingStar(rating: product.rating),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      product.noOfRating.toString(),
+                      style: const TextStyle(
+                        color: activeCyanColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            FittedBox(
+              child: SizedBox(
+                height: 25,
+                child: CostWidget(
+                    color: const Color.fromRGBO(235, 92, 9, 3),
+                    cost: product.cost),
+              ),
+            ),
+          ],
         ),
       ),
     );

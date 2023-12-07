@@ -1,5 +1,5 @@
-import 'package:amazon_clone/Layouts/Screens/result_screens.dart';
-import 'package:amazon_clone/Layouts/Search_screen.dart';
+import 'package:amazon_clone/Screens/result_screens.dart';
+import 'package:amazon_clone/Screens/search_screen.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:flutter/material.dart';
 

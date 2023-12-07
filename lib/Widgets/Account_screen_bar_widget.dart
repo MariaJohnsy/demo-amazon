@@ -1,7 +1,7 @@
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:flutter/material.dart';
 
-class AccounntSearchBarWidget extends StatelessWidget implements PreferredSizeWidget{ 
+class AccountSearchBarWidget extends StatelessWidget implements PreferredSizeWidget{ 
    @override
   Widget build(BuildContext context) {
     Size screenSize =MediaQuery.sizeOf(context);
@@ -46,7 +46,7 @@ class AccounntSearchBarWidget extends StatelessWidget implements PreferredSizeWi
 
   @override
   Size get preferredSize => const Size.fromHeight(kAppBarHeight);
-   const AccounntSearchBarWidget({
+   const AccountSearchBarWidget({
    super.key,
    PreferredSize,
   });

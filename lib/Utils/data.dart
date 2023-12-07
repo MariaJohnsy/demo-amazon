@@ -1,8 +1,9 @@
-import 'package:amazon_clone/Layouts/Screens/Account_screen.dart';
-import 'package:amazon_clone/Layouts/Screens/Cart_screen.dart';
-import 'package:amazon_clone/Layouts/Screens/more_screen.dart';
-import 'package:amazon_clone/Layouts/Simple_product_Widget.dart';
-import 'package:amazon_clone/Layouts/home_screen.dart';
+import 'package:amazon_clone/Model/product_model.dart';
+import 'package:amazon_clone/Screens/account_screen.dart';
+import 'package:amazon_clone/Screens/cart_screen.dart';
+import 'package:amazon_clone/Screens/more_screen.dart';
+import 'package:amazon_clone/Widgets/simple_product_widget.dart';
+import 'package:amazon_clone/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 const Color yellowColor = Color(0xfffed813);
@@ -84,16 +85,60 @@ const String amazonLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
 
 List<Widget> testChildren = [
-            SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-            SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-            SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-           SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-          SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-           SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  ];
+  SimpleProductWidget(
+    productModel: ProductModel(
+        url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+        productName: "Jerry",
+        cost: 1000000000000,
+        discount: 0,
+        uid: "ABCDEFGHIJ",
+        sellerName: "Fan seller",
+        sellerUid: "abcdefghij",
+        rating: 1,
+        noOfRating: 1),
+  ),
+  SimpleProductWidget(
+    productModel: ProductModel(
+        url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+        productName: "Jerry",
+        cost: 1000000000000,
+        discount: 0,
+        uid: "ABCDEFGHIJ",
+        sellerName: "Fan seller",
+        sellerUid: "abcdefghij",
+        rating: 1,
+        noOfRating: 1),
+  ),
+  SimpleProductWidget(
+    productModel: ProductModel(
+        url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+        productName: "Jerry",
+        cost: 1000000000000,
+        discount: 0,
+        uid: "ABCDEFGHIJ",
+        sellerName: "Fan seller",
+        sellerUid: "abcdefghij",
+        rating: 1,
+        noOfRating: 1),
+  ),
+  SimpleProductWidget(
+    productModel: ProductModel(
+        url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+        productName: "Jerry",
+        cost: 1000000000000,
+        discount: 0,
+        uid: "ABCDEFGHIJ",
+        sellerName: "Fan seller",
+        sellerUid: "abcdefghij",
+        rating: 1,
+        noOfRating: 1),
+  ),
+];
+
+List<String> keysOfRating = [
+  "Very Bad",
+  "Poor",
+  "Average",
+  "Good",
+  "Excellent"
+];

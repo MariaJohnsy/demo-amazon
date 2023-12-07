@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class utils {
-// Size getScreenSize(){        //(mediaQuery used)
-//   return();
-// }
-
+ //Size getScreenSize(){        //(mediaQuery used)
+  //return(MediaQueryData.fromWindow(WidgetsBinding.instance.window).size);
+ //}
   showSnackbar({required BuildContext context, required String content}) {
-    ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(                  //shows the notification appear the bottom
       SnackBar(
         backgroundColor: Colors.orange,
         shape: const RoundedRectangleBorder(
@@ -21,7 +20,7 @@ class utils {
             Text(content),
           ],
         ),
-      ), //shows the notification appear the bottom
+      ), 
     );
   }
 }

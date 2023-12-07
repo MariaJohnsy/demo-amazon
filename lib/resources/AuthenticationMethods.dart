@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:amazon_clone/Layouts/Screens/Sign_in.dart';
-import 'package:amazon_clone/resources/cloudfirestore_methods.dart';
+import 'package:amazon_clone/Screens/sign_in_screen.dart';
+import 'package:amazon_clone/Resources/cloudfirestore_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'models/user_detials_model.dart';
+import '../Model/user_detials_model.dart';
 
 class AuthenticationMethods{
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;

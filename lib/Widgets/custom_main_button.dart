@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-class CustomMainbutton extends StatelessWidget {
+class CustomMainButton extends StatelessWidget {
   final Widget child;
   final Color color;
   final bool isloading;
   final VoidCallback onPressed;
-  const CustomMainbutton({super.key,required this.child, required this.color, required this.isloading, required this.onPressed});
+  const CustomMainButton({super.key,required this.child, required this.color, required this.isloading, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;

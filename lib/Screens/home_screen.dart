@@ -1,9 +1,9 @@
-import 'package:amazon_clone/Layouts/Ad_Banner_Widget.dart';
-import 'package:amazon_clone/Layouts/Categories_horizontal_list_view_bar.dart';
-import 'package:amazon_clone/Layouts/Product_showcase_list_view.dart';
+import 'package:amazon_clone/Model/user_detials_model.dart';
+import 'package:amazon_clone/Widgets/Ad_banner_widget.dart';
+import 'package:amazon_clone/Widgets/categories_horizontal_list_view_bar.dart';
+import 'package:amazon_clone/Widgets/product_showcase_list_view.dart';
 import 'package:amazon_clone/Utils/data.dart';
-import 'package:amazon_clone/Layouts/Simple_product_Widget.dart';
-import 'package:amazon_clone/Model/UserDetialModel.dart';
+import 'package:amazon_clone/Widgets/simple_product_widget.dart';
 import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:amazon_clone/Widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,20 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController controller = ScrollController();
   double offset = 0;
-  List<Widget> testChildren = [
-    const SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-                const SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-                    const SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-                const SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-                    const SimpleProductWidget(
-                  url:"https://m.media-amazon.com/images/I/51QISbJp5-L._SX3000_.jpg"),
-                const SimpleProductWidget(
-                  url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png"),
-  ];
 
   @override
   void initState() {
@@ -79,10 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            UserDetialBar(offset: offset, userDetails: UserDetialModel(name: "Maria Johnsy",  address: "Somewhere on Earth",
-            ),
-            ),
-            
+            UserDetialBar(offset: offset),
           ],
         ),
     );
