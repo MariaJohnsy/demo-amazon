@@ -1,4 +1,3 @@
-
 import 'package:amazon_clone/Screens/sign_up_screen.dart';
 import 'package:amazon_clone/Widgets/custom_main_button.dart';
 import 'package:amazon_clone/Utils/data.dart';
@@ -89,16 +88,17 @@ class _SignInState extends State<SignIn> {
                       isloading:  false,
                       onPressed: () async {
                         setState(() {
-                          isloading = false;
+                          isloading = true;
                         });
+                        Future.delayed(Duration(seconds: 1));
                        String output = await authenticationMethods.Sign_in(
                           email: emailcontroller.text, password: passwordcontroller.text);
                           setState(() {
-                            isloading = isloading;                              //loading procedure
+                            isloading = isloading;         //loading procedure
                           });
                           if (output == "success"){
                           } else {
-                            utils().showSnackbar(                     //temporary messages
+                            utils().showSnackbar(          //temporary messages
                               context: context, content:output);
                           }
                       }),

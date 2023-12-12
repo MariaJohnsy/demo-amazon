@@ -1,6 +1,5 @@
 import 'package:amazon_clone/Model/product_model.dart';
 import 'package:amazon_clone/Model/review_model.dart';
-import 'package:amazon_clone/Model/user_detials_model.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:amazon_clone/Widgets/cost_widget.dart';
@@ -10,6 +9,7 @@ import 'package:amazon_clone/Widgets/rating_star_widget.dart';
 import 'package:amazon_clone/Widgets/review_dialog.dart';
 import 'package:amazon_clone/Widgets/review_widget.dart';
 import 'package:amazon_clone/Widgets/search_bar_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -106,17 +106,17 @@ class _ProductScreenState extends State<ProductScreen> {
                ),
                    SizedBox(
                     height: screenSize.height,
-                    child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder:(context,index){
-                     return const ReviewWidget(review: 
-                     reviewModel(
-                    senderName: "Jerry",
-                     description: "very good product", 
-                     rating: 3),
-                     );
-                    } 
-                    ),
+                    child: StreamBuilder(
+                    stream: FirebaseFirestore.instance.collection("products").doc(widget.productModel.uid).collection("reviews").snapshots(),
+                    builder: (context,AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>>snapShot){
+                      if (snapShot.connectionState ==ConnectionState.waiting){
+                        return Container();
+                      } else {
+                        return ListView.builder(itemCount:snapShot.data!.docs.length,itemBuilder: (context,index){
+                       snapShot.data!.docs[index].data();
+                        });
+                      }
+                    })
                    ),
               ],
             ),

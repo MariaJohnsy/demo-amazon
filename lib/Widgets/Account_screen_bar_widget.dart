@@ -20,7 +20,9 @@ class AccountSearchBarWidget extends StatelessWidget implements PreferredSizeWid
       children: [
         Padding(
           padding:const EdgeInsets.symmetric(horizontal: 15),
-          child: Image.network(amazonLogoUrl, height: kAppBarHeight *0.7,
+          child: Image.network(
+            amazonLogoUrl,
+             height: kAppBarHeight *0.7,
           ),
         ),
         Row(
