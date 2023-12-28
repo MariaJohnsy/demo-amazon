@@ -62,7 +62,7 @@ class _SignInState extends State<SignIn> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Sign In",                                    //Heading
+                        "Sign In",                               //Heading
                         style: TextStyle(
                         fontWeight: FontWeight.w500, fontSize: 33),
                       ),
@@ -84,13 +84,13 @@ class _SignInState extends State<SignIn> {
                       letterSpacing:0.6, 
                       color: Colors.black),
                       ), 
-                      color: yellowColor,                                      //yellow button sign in
+                      color: yellowColor,             //yellow button "sign in"
                       isloading:  false,
                       onPressed: () async {
                         setState(() {
                           isloading = true;
                         });
-                        Future.delayed(Duration(seconds: 1));
+                        Future.delayed(const Duration(seconds: 1));
                        String output = await authenticationMethods.Sign_in(
                           email: emailcontroller.text, password: passwordcontroller.text);
                           setState(() {

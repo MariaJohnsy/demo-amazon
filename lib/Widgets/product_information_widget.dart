@@ -15,7 +15,7 @@ class ProductInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     SizedBox spaceThingy = const SizedBox(
+  SizedBox spaceThingy = const SizedBox(
   height: 7,
   );
 
@@ -37,7 +37,7 @@ class ProductInformationWidget extends StatelessWidget {
                letterSpacing: 0.9,
                overflow: TextOverflow.ellipsis,
             ),
-                  ),
+         ),
           ),
         spaceThingy,
         Align(

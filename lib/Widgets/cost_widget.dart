@@ -20,7 +20,7 @@ class CostWidget extends StatelessWidget {
           color: color,
           fontSize: 10,
           fontFeatures: const [
-            FontFeature.superscripts(),
+          FontFeature.superscripts(),
           ],
         ),
         ), //₹ = Ctrl+Alt+4

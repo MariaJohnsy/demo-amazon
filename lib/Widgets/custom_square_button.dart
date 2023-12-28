@@ -24,7 +24,8 @@ class CustomSquareutton extends StatelessWidget {
           color: color,
           shape:RoundedRectangleBorder(
           side: const BorderSide(
-            color: Colors.grey,width: 1,
+            color: Colors.grey,
+            width: 1,
           ),
          borderRadius: BorderRadius.circular(2),
         ),

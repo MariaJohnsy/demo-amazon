@@ -2,7 +2,7 @@ import 'package:amazon_clone/Utils/data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class AdBannerWidget extends StatefulWidget {
+class AdBannerWidget extends StatefulWidget { //ad banner of homescreen
   const AdBannerWidget({super.key});
 
   @override

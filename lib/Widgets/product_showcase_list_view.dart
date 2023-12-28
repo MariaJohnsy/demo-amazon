@@ -5,7 +5,9 @@ class ProductShowCaseListView extends StatelessWidget {
   final String title;
   final List<Widget> children;
   const ProductShowCaseListView({
-    super.key, required this.title, required this.children,
+    super.key,
+   required this.title,
+   required this.children,
   });
 
   @override
@@ -34,7 +36,8 @@ class ProductShowCaseListView extends StatelessWidget {
               const Padding(
                 padding:EdgeInsets.only(left: 14),
                 child:Text(
-                  "Show more", style: TextStyle(
+                  "Show more", 
+                  style: TextStyle(
                   color: activeCyanColor,
                 ),
                 ),

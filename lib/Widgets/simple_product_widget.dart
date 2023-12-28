@@ -11,7 +11,8 @@ class SimpleProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-      Navigator.push(context, MaterialPageRoute(builder:(context) => ProductScreen(productModel:productModel),
+      Navigator.push(context, MaterialPageRoute(builder:(context) =>
+      ProductScreen(productModel:productModel),
         ),
         );
       },
@@ -20,7 +21,7 @@ class SimpleProductWidget extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(1),
             child: Image.network(productModel.url),
           ),
         ),

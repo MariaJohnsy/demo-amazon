@@ -3,7 +3,7 @@ import 'package:amazon_clone/Widgets/result_widgets.dart';
 import 'package:amazon_clone/Widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatelessWidget {  //showing result screen
   final String query;
   const ResultScreen({super.key, required this.query});
 
@@ -51,7 +51,7 @@ class ResultScreen extends StatelessWidget {
                   return ResultWidget(
                     product: ProductModel(
                         url:
-                            "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+            "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
                         productName: "Snowyaa aaa aaaa aaaaa aaaaaaaaaa aaaa",
                         cost: 100,
                         discount: 0,

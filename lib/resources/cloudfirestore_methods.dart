@@ -1,4 +1,5 @@
 import 'package:amazon_clone/Model/product_model.dart';
+import 'package:amazon_clone/Model/review_model.dart';
 import 'package:amazon_clone/Utils/utils.dart';
 import 'package:amazon_clone/Widgets/simple_product_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,10 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import '../Model/user_detials_model.dart';
 
-class CloudFirestoreClass{
+class CloudFirestoreClass{         //provides detailed documentation 
    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
@@ -25,7 +25,7 @@ class CloudFirestoreClass{
     DocumentSnapshot snap = await firebaseFirestore
         .collection("users")
        .doc(firebaseAuth.currentUser!.uid)
-        .get();
+      .get();
        print(snap.data());
 
     UserDetialsModel userModels = UserDetialsModel.getModelFromJson(
@@ -61,7 +61,10 @@ class CloudFirestoreClass{
       sellerUid: sellerUid, 
       rating: 5,
        noOfRating: 0);
-       await firebaseFirestore.collection("products").doc(uid).set(product.getJson());
+       await firebaseFirestore
+       .collection("products")
+       .doc(uid)
+       .set(product.getJson());
         output = "success";
       }catch(e){
         output = e.toString();
@@ -88,9 +91,55 @@ class CloudFirestoreClass{
 
       for (int i = 0; i < snap.docs.length; i++){
       DocumentSnapshot docSnap = snap.docs[i];
-      ProductModel model = ProductModel.getModeFromJson(json: (docSnap.data()as dynamic));
-      children.add(SimpleProductWidget(productModel: model));
+      ProductModel model = ProductModel.getModeFromJson(
+      json: (
+      docSnap.data()as dynamic));
+      children.add(
+      SimpleProductWidget(productModel: model));
       }
       return children;
     }
+
+    Future uploadReviewToDataBase({
+      required String productsUid,
+      required reviewModel model,
+    }) async {
+     await firebaseFirestore
+      .collection("products")
+      .doc(productsUid).collection("reviews")
+      .add(model.getJson());
+    }
+  Future addProductToCart({required ProductModel productModel})async{
+   await firebaseFirestore
+   .collection("users")
+   .doc(firebaseAuth.currentUser!.uid)
+   .collection("cart").doc(productModel.uid)
+   .set((productModel.getJson()));
+  }
+  Future deleteProductFromCart({required String uid}) async{
+  await firebaseFirestore
+  .collection("users")
+  .doc(firebaseAuth.currentUser!.uid)
+  .collection("cart").doc(uid)
+  .delete();
+  }
+  Future buyAllItemsInCart ()async{
+  QuerySnapshot<Map<String,dynamic>> snapshot
+   = await firebaseFirestore.collection("users")
+  .doc(firebaseAuth.currentUser!.uid)
+  .collection("cart")
+  .get();
+
+  for (int i = 0;i<snapshot.docs.length;i++){
+    ProductModel model = ProductModel.getModeFromJson(json: snapshot.docs[i].data());
+    addProductToOrders(model: model);
+  }
+  }
+  Future addProductToOrders ({required ProductModel model}) async {
+    await firebaseFirestore.collection("users")
+    .doc(firebaseAuth.currentUser!.uid)
+    .collection("orders")
+    .add(model.getJson());
+    await deleteProductFromCart(uid: model.uid);
+  }
 }

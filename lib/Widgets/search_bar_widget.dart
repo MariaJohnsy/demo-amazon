@@ -57,14 +57,16 @@ class SearchBarWidget extends StatelessWidget implements PreferredSizeWidget{ //
           ),
            child: TextField(
                onSubmitted: (String query){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen(query: query),
+                Navigator.push(context, MaterialPageRoute(builder: (context)
+                 => ResultScreen(query: query),
                 ),
                 );
                },
                  readOnly: isReadOnly,
                  onTap: (){
             if(isReadOnly){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen(),
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => const SearchScreen(),
               ));
             }
                  },

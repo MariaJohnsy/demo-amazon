@@ -1,4 +1,4 @@
-class UserDetialsModel{
+class UserDetialsModel{         //to passage of data
   final String name;
   final String address;
   UserDetialsModel({required this.name, required this.address});

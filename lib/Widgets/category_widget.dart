@@ -2,7 +2,7 @@ import 'package:amazon_clone/Screens/result_screens.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:flutter/material.dart';
 
-class CategoryWidget extends StatelessWidget {
+class CategoryWidget extends StatelessWidget {  
   final int index;
   const CategoryWidget({super.key, required this.index});
 
@@ -10,7 +10,8 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder:(context)=>ResultScreen(query: categoriesList[index],),
+        Navigator.push(context, MaterialPageRoute(builder:(context)=>
+        ResultScreen(query: categoriesList[index],),
         ),
         );
       },

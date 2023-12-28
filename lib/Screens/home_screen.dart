@@ -8,7 +8,7 @@ import 'package:amazon_clone/Widgets/search_bar_widget.dart';
 import 'package:amazon_clone/resources/cloudfirestore_methods.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {        //Home screen
   const HomeScreen({super.key});
 
   @override
@@ -48,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
   await CloudFirestoreClass().getProductsFromDiscount(50);
   List <Widget> temp0 =
   await CloudFirestoreClass().getProductsFromDiscount(0);
-   print("everything is done");
+  print("everything is done");
+
   setState(() {
     discount70 = temp70;
     discount60 = temp60;
@@ -60,14 +61,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: SearchBarWidget(
+      appBar: SearchBarWidget( 
         isReadOnly: true, 
         hasBackButton: false),
-        body:discount70! == null &&
-         discount60! == null && 
-         discount50! == null &&
-          discount0! == null
-        ?Stack(
+        body: discount70  != null &&               //! (issue)
+              discount60  !=null && 
+              discount50  != null &&
+              discount0   != null
+        ?Stack(                           
           children: [
             SingleChildScrollView(
               controller: controller,

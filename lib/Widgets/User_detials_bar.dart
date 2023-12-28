@@ -14,7 +14,8 @@ class UserDetialBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    UserDetialsModel userDetials = Provider.of<userDetiallsProvider>(context).userDetials;
+    UserDetialsModel userDetails =
+    Provider.of<UserDetialsProvider>(context).userDetials;
     return Positioned(
       top: -offset / 3,
       child: Container(
@@ -27,8 +28,10 @@ class UserDetialBar extends StatelessWidget {
             end: Alignment.centerRight,
             ),
         ),
-        child:Padding(padding:const EdgeInsets.symmetric(
-          vertical: 3, horizontal: 20,
+        child:Padding(
+        padding:const EdgeInsets.symmetric(
+          vertical: 3, 
+          horizontal: 20,
         ),
           child: Row(
             children: [
@@ -42,7 +45,7 @@ class UserDetialBar extends StatelessWidget {
               SizedBox(
                 width: screenSize.width*0.7,
                 child: Text(
-                  "Deliever to ${userDetials.name}  -${userDetials.address}",
+               "Deliever to ${userDetails.name} -${userDetails.address}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                    style: TextStyle(

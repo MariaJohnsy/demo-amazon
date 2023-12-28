@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProductModel{
+class ProductModel{                          //product showcase
   final String url;
   final String productName;
   final double cost;

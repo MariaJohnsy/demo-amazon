@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:amazon_clone/Screens/sign_in_screen.dart';
 import 'package:amazon_clone/Resources/cloudfirestore_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../Model/user_detials_model.dart';
 
-class AuthenticationMethods{
+class AuthenticationMethods{        //future function of sign up and sign in
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   CloudFirestoreClass cloudFirestoreClass = CloudFirestoreClass();
 
@@ -18,7 +17,7 @@ class AuthenticationMethods{
   email.trim();
   password.trim();
   String output = "Something went wrong";
-  if (name!= "" && address!="" && email!= "" && password!= ""){ //!= not equal
+  if (name!= "" && address!="" && email!= "" && password!= ""){   //!= not equal
    try{
    await firebaseAuth.createUserWithEmailAndPassword(
     email: email, password: password);

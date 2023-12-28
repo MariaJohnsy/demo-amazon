@@ -9,7 +9,7 @@ class utils {
   //return(MediaQueryData.fromWindow(WidgetsBinding.instance.window).size);
  //}
   showSnackbar({required BuildContext context, required String content}) {
-    ScaffoldMessenger.of(context).showSnackBar(                  //shows the notification appear the bottom
+    ScaffoldMessenger.of(context).showSnackBar(  //shows the notification appear the bottom
       SnackBar(
         backgroundColor: Colors.orange,
         shape: const RoundedRectangleBorder(

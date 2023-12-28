@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                     height: screenSize.height * 0.7,
                     child: FittedBox(
                       child: Container(
-                        height: screenSize.height*0.7,
+                        height: screenSize.height*0.85,
                         width: screenSize.width*0.8,
                         padding: const EdgeInsets.all(25),
                         decoration: BoxDecoration(
@@ -95,7 +95,9 @@ class _SignUpState extends State<SignUp> {
                         Align(
                           alignment:Alignment.center ,
                           child: CustomMainButton(child: const Text("Sign In", 
-                          style: TextStyle(letterSpacing:0.6, color: Colors.black),), 
+                          style: TextStyle(
+                          letterSpacing:0.6,
+                           color: Colors.black),), 
                           color: yellowColor, 
                           isloading:  false,
                           onPressed: () async {
@@ -117,7 +119,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         );
                           }else{
-                            print(output); //log => print
+                            print(output);               //log => print
                           }
                           },
                           ),

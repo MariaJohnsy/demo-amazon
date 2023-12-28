@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:amazon_clone/Providers/user_detials_provider.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:amazon_clone/Utils/utils.dart';
@@ -11,7 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SellScreen extends StatefulWidget {
+class SellScreen extends StatefulWidget {      //selling screen
   const SellScreen({super.key});
 
   @override
@@ -55,7 +54,8 @@ class _SellScreenState extends State<SellScreen> {
                  Stack(
                   children: [
                     image == null?
-                    Image.network("https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+                    Image.network(
+                  "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
                        height: screenSize.height/10,
                     ):
                    Image.memory(
@@ -105,7 +105,7 @@ class _SellScreenState extends State<SellScreen> {
                        ),
                        ),
                        ListTile(
-                        title: Text("None"),
+                        title: const Text("None"),
                         leading: Radio(value: 1,
                          groupValue: selected, 
                          onChanged: (int ? i){
@@ -115,7 +115,7 @@ class _SellScreenState extends State<SellScreen> {
                          }),
                        ),
                        ListTile(
-                        title: Text("70%"),
+                        title: const Text("70%"),
                         leading: Radio(value: 2,
                          groupValue: selected, 
                          onChanged: (int ? i){
@@ -125,7 +125,7 @@ class _SellScreenState extends State<SellScreen> {
                          }),
                        ),
                        ListTile(
-                        title: Text("60%"),
+                        title: const Text("60%"),
                         leading: Radio(value: 3,
                          groupValue: selected, 
                          onChanged: (int ? i){
@@ -135,7 +135,7 @@ class _SellScreenState extends State<SellScreen> {
                          }),
                        ),
                        ListTile(
-                        title: Text("50%"),
+                        title: const Text("50%"),
                         leading: Radio(value: 4,
                          groupValue: selected, 
                          onChanged: (int ? i){
@@ -160,7 +160,7 @@ class _SellScreenState extends State<SellScreen> {
                     productName: nameController.text,
                      rawCost:costController.text,
                       discount: keysForDiscount[selected-1], 
-                      sellerName: Provider.of<userDetiallsProvider>(context,listen: false).userDetials.name, 
+                      sellerName: Provider.of<UserDetialsProvider>(context,listen: false).userDetials.name, 
                       sellerUid: FirebaseAuth.instance.currentUser!.uid);
                       if (output == "success"){
                         utils().showSnackbar(

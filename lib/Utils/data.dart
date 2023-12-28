@@ -25,7 +25,7 @@ const List<Color> lightBackgroundaGradient = [
 const double kAppBarHeight = 80;
 
 const String amazonLogoUrl =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png";
+"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png";
 
 const List<String> categoriesList = [
   "Prime",
@@ -39,7 +39,7 @@ const List<String> categoriesList = [
   "Essential"
 ];
 
-const List<Widget> screens = [
+ const List<Widget> screens = [
   HomeScreen(),
   AccountScreen(),
   CartScreen(),
@@ -89,7 +89,7 @@ List<Widget> testChildren = [
     productModel: ProductModel(
         url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
         productName: "Jerry",
-        cost: 1000000000000,
+        cost: 1000,
         discount: 0,
         uid: "ABCDEFGHIJ",
         sellerName: "Fan seller",

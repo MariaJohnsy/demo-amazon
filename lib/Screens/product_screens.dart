@@ -1,6 +1,8 @@
 import 'package:amazon_clone/Model/product_model.dart';
 import 'package:amazon_clone/Model/review_model.dart';
+import 'package:amazon_clone/Model/user_detials_model.dart';
 import 'package:amazon_clone/Utils/data.dart';
+import 'package:amazon_clone/Utils/utils.dart';
 import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:amazon_clone/Widgets/cost_widget.dart';
 import 'package:amazon_clone/Widgets/custom_main_button.dart';
@@ -9,10 +11,11 @@ import 'package:amazon_clone/Widgets/rating_star_widget.dart';
 import 'package:amazon_clone/Widgets/review_dialog.dart';
 import 'package:amazon_clone/Widgets/review_widget.dart';
 import 'package:amazon_clone/Widgets/search_bar_widget.dart';
+import 'package:amazon_clone/resources/cloudfirestore_methods.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class ProductScreen extends StatefulWidget {
+class ProductScreen extends StatefulWidget {     //product screen
   final ProductModel productModel;
   const ProductScreen({super.key, required this.productModel});
 
@@ -36,7 +39,7 @@ class _ProductScreenState extends State<ProductScreen> {
             child: Column(
               children: [
                SizedBox(
-                height: screenSize.height - (kAppBarHeight + (kAppBarHeight / 2)),
+              height: screenSize.height - (kAppBarHeight + (kAppBarHeight / 2)),
                 child: Column(
                   children: [
                      const SizedBox(height: kAppBarHeight/2),
@@ -85,19 +88,26 @@ class _ProductScreenState extends State<ProductScreen> {
                    onPressed: (){}),
                    spaceThingy,
                    CustomMainButton(child: 
-                  Text("Add to Cart",
+                   Text("Add to Cart",
                   style: TextStyle(
                   color: Colors.black,
                 ),
                 ),
                  color: yellowColor,
                   isloading: false,
-                   onPressed: (){}),
+                   onPressed: () async{
+                 await CloudFirestoreClass()
+                 .addProductToCart(productModel:widget.productModel);
+                 utils().showSnackbar(context: context,
+                  content: "Added to cart");
+                   }),
                    spaceThingy,
                    CustomSimpleRoundedButton(onPressed: (){
                      showDialog(
                     context: context,
-                     builder:(context)=> ReviewDialog());
+                     builder:(context)=> ReviewDialog(
+                      productUid: widget.productModel.uid,
+                     ));
                    },
                     text: ("Add a review for this product"),
                    ),
@@ -107,13 +117,23 @@ class _ProductScreenState extends State<ProductScreen> {
                    SizedBox(
                     height: screenSize.height,
                     child: StreamBuilder(
-                    stream: FirebaseFirestore.instance.collection("products").doc(widget.productModel.uid).collection("reviews").snapshots(),
-                    builder: (context,AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>>snapShot){
+                    stream: FirebaseFirestore
+                    .instance
+                    .collection("products")
+                    .doc(widget.productModel.uid)
+                    .collection("reviews")
+                    .snapshots(),
+                    builder: (context,
+                    AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>>snapShot){
                       if (snapShot.connectionState ==ConnectionState.waiting){
                         return Container();
                       } else {
-                        return ListView.builder(itemCount:snapShot.data!.docs.length,itemBuilder: (context,index){
-                       snapShot.data!.docs[index].data();
+                        return ListView.builder(
+                    itemCount:snapShot.data!.docs.length,
+                    itemBuilder: (context,index){
+                       reviewModel model = reviewModel.getModelFromJson(
+                        json: snapShot.data!.docs[index].data());
+                        return ReviewWidget(review: model);
                         });
                       }
                     })
@@ -122,7 +142,7 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
           ),
           ),
-         UserDetialBar(offset: 0),
+        const UserDetialBar(offset: 0),
         ],
       ),
       ),

@@ -1,10 +1,9 @@
 import 'package:amazon_clone/Providers/user_detials_provider.dart';
 import 'package:amazon_clone/Resources/cloudfirestore_methods.dart';
 import 'package:amazon_clone/Utils/data.dart';
-import 'package:amazon_clone/Widgets/User_detials_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-class ScreenLayout extends StatefulWidget {
+class ScreenLayout extends StatefulWidget {  //layout the each screens
   const ScreenLayout({super.key});
 
   @override
@@ -34,13 +33,13 @@ class _ScreenLayoutState extends State<ScreenLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<userDetiallsProvider>(context).getData();
+    Provider.of<UserDetialsProvider>(context).getData();
     return DefaultTabController(
       length: 4,
       child: SafeArea(
         child: Scaffold(
           body: PageView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             controller: pageController,
             children: screens,
           ),

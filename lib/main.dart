@@ -1,7 +1,6 @@
 import 'package:amazon_clone/Firebase_Options.dart';
 import 'package:amazon_clone/Layouts/screen_layout.dart';
 import 'package:amazon_clone/Providers/user_detials_provider.dart';
-import 'package:amazon_clone/Screens/sell_screen.dart';
 import 'package:amazon_clone/Screens/sign_in_screen.dart';
 import 'package:amazon_clone/Utils/data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +23,7 @@ class Amazonapp extends StatelessWidget {
     
     return MultiProvider(
       providers: [
-    ChangeNotifierProvider(create: (_)=>userDetiallsProvider())],
+    ChangeNotifierProvider(create: (_) => UserDetialsProvider())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Amazon Clone",
